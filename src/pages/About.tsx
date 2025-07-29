@@ -266,7 +266,7 @@ const About: React.FC = () => {
             <div className="relative">
               <div className="relative overflow-hidden rounded-3xl shadow-2xl">
                 <img
-                  src="/../public/about.jpg"
+                  src="/about.jpg"
                   alt="ابار جروب"
                   loading="lazy"
                   className="w-full h-96 object-cover"

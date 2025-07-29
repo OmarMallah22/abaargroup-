@@ -15,7 +15,7 @@ interface Service {
 // --- المكون الفرعي: بطاقة الخدمة ---
 const ServiceCard: React.FC<{ service: Service; onClick: () => void }> = React.memo(({ service, onClick }) => {
     // استخراج الوصف القصير من بداية النص ليعرض في البطاقة
-    const shortDescriptionMatch = service.description.match(/\\*وصف قصير للمعاينة:\\([\s\S]?)---/);
+    const shortDescriptionMatch = service.description.match(/\\*وصف قصير للمعاينة:\\*([\s\S]*?)---/);
     const shortDescription = shortDescriptionMatch ? shortDescriptionMatch[1].trim() : service.description.split('\n')[0].trim();
 
     return (
@@ -24,10 +24,11 @@ const ServiceCard: React.FC<{ service: Service; onClick: () => void }> = React.m
             className="bg-white rounded-2xl shadow-md overflow-hidden group transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2 flex flex-col cursor-pointer"
             onClick={onClick}
         >
-            <div className="relative aspect-[4/3] overflow-hidden">
-                <img src={service.image_url} alt={service.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            {/* --- التعديل هنا --- */}
+            <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
+                <img src={service.image_url} alt={service.title} loading="lazy" className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105" />
             </div>
+            {/* --- نهاية التعديل --- */}
             <div className="p-6 flex flex-col flex-grow">
                 <h3 className="text-2xl font-arabic font-bold text-primary-blue mb-3">{service.title}</h3>
                 <p className="font-arabic text-primary-gray leading-relaxed text-base mb-4 flex-grow line-clamp-2">{shortDescription}</p>
@@ -58,10 +59,8 @@ const ServiceModal: React.FC<{ service: Service | null; onClose: () => void }> =
 
     if (!service) return null;
 
-    // استخراج النص الكامل للتفاصيل من وصف الخدمة
     const fullDescriptionMatch = service.description.match(/---([\s\S]*)/);
     const fullDescription = fullDescriptionMatch ? fullDescriptionMatch[1].trim() : service.description;
-
 
     return (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in" onClick={onClose}>
@@ -70,37 +69,22 @@ const ServiceModal: React.FC<{ service: Service | null; onClose: () => void }> =
                 className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto flex flex-col shadow-2xl animate-scale-in"
                 onClick={(e) => e.stopPropagation()}
             >
-                <div className="relative">
-                    <img src={service.image_url} alt={service.title} loading="lazy" className="w-full h-64 object-cover" />
+                {/* --- التعديل هنا --- */}
+                <div className="relative bg-gray-100">
+                    <img src={service.image_url} alt={service.title} loading="lazy" className="w-full h-64 object-contain" />
                     <button onClick={onClose} className="absolute top-4 right-4 p-2 bg-white/70 backdrop-blur-sm text-gray-800 rounded-full hover:bg-white hover:scale-110 transition-all duration-300 z-10">
                         <X className="h-5 w-5" />
                     </button>
                 </div>
+                {/* --- نهاية التعديل --- */}
                 <div className="p-8 md:p-12">
                     <h2 className="text-3xl md:text-4xl font-arabic font-bold text-primary-blue mb-6 text-center">{service.title}</h2>
                     <article className="prose prose-lg prose-slate max-w-none prose-rtl">
                         <style dangerouslySetInnerHTML={{ __html: `
-                            /* تخصيص اتجاه النص والقوائم لـ RTL */
-                            .prose-rtl ul, .prose-rtl ol {
-                                direction: rtl;
-                                text-align: right;
-                                padding-right: 20px; /* مسافة بادئة من اليمين للقوائم */
-                                padding-left: 0;     /* إزالة المسافة البادئة الافتراضية من اليسار */
-                            }
-                            .prose-rtl ul li, .prose-rtl ol li {
-                                list-style-position: inside; /* لجعل النقطة/الرقم داخل حدود العنصر */
-                                text-indent: -1.5em; /* لتعويض المسافة التي تشغلها النقطة وجعل النص يبدأ من اليمين */
-                                padding-right: 1.5em; /* مسافة داخلية لضمان النص بعد النقطة */
-                            }
-                            .prose-rtl p {
-                                text-align: right; /* محاذاة الفقرات لليمين */
-                                direction: rtl;
-                            }
-                            /* تصحيح محاذاة العناوين إذا لزم الأمر */
-                            .prose-rtl h1, .prose-rtl h2, .prose-rtl h3, .prose-rtl h4, .prose-rtl h5, .prose-rtl h6 {
-                                text-align: right;
-                                direction: rtl;
-                            }
+                            .prose-rtl ul, .prose-rtl ol { direction: rtl; text-align: right; padding-right: 20px; padding-left: 0; }
+                            .prose-rtl ul li, .prose-rtl ol li { list-style-position: inside; text-indent: -1.5em; padding-right: 1.5em; }
+                            .prose-rtl p { text-align: right; direction: rtl; }
+                            .prose-rtl h1, .prose-rtl h2, .prose-rtl h3, .prose-rtl h4, .prose-rtl h5, .prose-rtl h6 { text-align: right; direction: rtl; }
                         `}} />
                         <ReactMarkdown>{fullDescription}</ReactMarkdown>
                     </article>
