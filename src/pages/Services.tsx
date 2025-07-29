@@ -203,7 +203,8 @@ const Services: React.FC = () => {
                     <h1 className="text-5xl md:text-6xl font-arabic font-bold mb-6 leading-tight drop-shadow-md">خدماتنا</h1>
                     <div className="w-24 h-1 bg-yellow-400 mx-auto"></div>
                     <p className="mt-6 text-lg md:text-xl font-arabic text-white/90 max-w-3xl mx-auto leading-relaxed drop-shadow-sm">
-                        من حفر الآبار وتركيب أنظمة الطاقة الشمسية إلى الصيانة والاستشارات، نقدم حلولاً مبتكرة وموثوقة.
+                        من حفر الأبار وتوريد وتركيب طلمبات الأعماق الي الصيانة و أعادة تاهيل أبارالمياه     
+                        نقد حلولاً مبتكرة
                     </p>
                 </div>
             </section>

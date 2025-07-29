@@ -353,7 +353,7 @@ const Homepage: React.FC = () => {
                         </div>
                         <div className="relative">
                             <div className="relative overflow-hidden rounded-3xl shadow-2xl">
-                                <img src="../../ecommerce-website/backend/picture/about.jpg" alt="About ABAAR Group" className="w-full h-96 object-cover" loading="lazy" />
+                                <img src="../../ecommerce-website/backend/picture/about.jpg" alt=" Abaar Group" className="w-full h-96 object-cover" loading="lazy" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary-blue/50 to-transparent"></div>
                             </div>
                             <div className="absolute -top-6 -right-6 w-32 h-32 bg-primary-light-blue/20 rounded-full animate-float"></div>
