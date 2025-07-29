@@ -1,0 +1,67 @@
+/* src/components/DropdownMenu.css */
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  font-family: inherit; /* يرث الخط من الهيدر */
+  font-weight: inherit; /* يرث سماكة الخط */
+  font-size: inherit; /* يرث حجم الخط */
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: inherit; /* الأهم: يرث اللون من الهيدر */
+}
+
+.dropbtn .arrow {
+  margin-right: 6px;
+  font-size: 12px;
+  transition: transform 0.3s;
+}
+
+.dropbtn .arrow.up {
+  transform: rotate(180deg);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 250px; /* أقل عرض للقائمة */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 10;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.dropdown-content.show {
+  display: block;
+}
+
+/* التعديلات المهمة هنا لإصلاح شكل النص */
+.dropdown-content button {
+  color: #333;
+  padding: 12px 16px; /* حشو داخلي مناسب */
+  text-decoration: none;
+  display: block;
+  text-align: right; /* محاذاة النص لليمين */
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Cairo', sans-serif; /* تأكد من استخدام نفس الخط */
+  white-space: normal; /* السماح للنص بالانتقال لسطر جديد */
+  line-height: 1.5; /* تباعد الأسطر */
+}
+
+.dropdown-content button:hover {
+  background-color: #f1f1f1;
+}
