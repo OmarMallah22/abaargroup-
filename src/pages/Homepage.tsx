@@ -26,60 +26,90 @@ interface Client {
 
 // --- 1. مكون فرعي: بطاقة الخدمة ---
 const ServiceCard: React.FC<{ service: Service; onClick: () => void }> = React.memo(({ service, onClick }) => {
-  const shortDescriptionMatch = service.description.match(/وصف قصير للمعاينة:\s*([\s\S]*?)---/);
-  const shortDescription = shortDescriptionMatch ? shortDescriptionMatch[1].trim() : service.description.split('\n')[0].trim();
-  return (
-    <div className="bg-white rounded-2xl shadow-md overflow-hidden group transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2 flex flex-col cursor-pointer" onClick={onClick}>
-      <div className="relative aspect-[4/3] overflow-hidden">
-        {/* --- تعديل: تمت إضافة group-hover:scale-105 لتكبير الصورة --- */}
-        <img src={service.image_url} alt={service.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-      </div>
-      <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-2xl font-arabic font-bold text-primary-blue mb-3">{service.title}</h3>
-        <p className="font-arabic text-primary-gray leading-relaxed text-base mb-4 flex-grow line-clamp-2">{shortDescription}</p>
-        <div className="mt-auto">
-          <span className="inline-flex items-center text-primary-blue font-arabic font-bold transition-colors duration-300 group-hover:text-primary-sky-blue">
-            اقرأ المزيد
-            <ArrowLeft className="mr-2 h-5 w-5 transition-transform duration-300 group-hover:-translate-x-1 rtl:group-hover:translate-x-1" />
-          </span>
+    // استخراج الوصف القصير من بداية النص ليعرض في البطاقة
+    const shortDescriptionMatch = service.description.match(/\\*وصف قصير للمعاينة:\\*([\s\S]*?)---/);
+    const shortDescription = shortDescriptionMatch ? shortDescriptionMatch[1].trim() : service.description.split('\n')[0].trim();
+
+    return (
+        <div
+            id={service.id}
+            className="bg-white rounded-2xl shadow-md overflow-hidden group transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2 flex flex-col cursor-pointer"
+            onClick={onClick}
+        >
+            {/* --- التعديل هنا --- */}
+            <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
+                <img src={service.image_url} alt={service.title} loading="lazy" className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105" />
+            </div>
+            {/* --- نهاية التعديل --- */}
+            <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-2xl font-arabic font-bold text-primary-blue mb-3">{service.title}</h3>
+                <p className="font-arabic text-primary-gray leading-relaxed text-base mb-4 flex-grow line-clamp-2">{shortDescription}</p>
+                <div className="mt-auto">
+                    <span className="inline-flex items-center text-primary-blue font-arabic font-bold transition-colors duration-300 group-hover:text-primary-sky-blue">
+                        اقرأ المزيد
+                        <ArrowLeft className="mr-2 h-5 w-5 transition-transform duration-300 group-hover:-translate-x-1 rtl:group-hover:translate-x-1" />
+                    </span>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 });
 
 // --- 2. مكون فرعي: النافذة المنبثقة للخدمة ---
 const ServiceModal: React.FC<{ service: Service | null; onClose: () => void }> = React.memo(({ service, onClose }) => {
-  useEffect(() => {
-    const body = document.body;
-    if (service) { body.style.overflow = 'hidden'; } else { body.style.overflow = ''; }
-    return () => { body.style.overflow = ''; };
-  }, [service]);
-  if (!service) return null;
-  const fullDescriptionMatch = service.description.match(/---([\s\S]*)/);
-  const fullDescription = fullDescriptionMatch ? fullDescriptionMatch[1].trim() : service.description;
-  return (
-    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in" onClick={onClose}>
-      <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto flex flex-col shadow-2xl animate-scale-in" onClick={(e) => e.stopPropagation()}>
-        <div className="relative">
-          <img src={service.image_url} alt={service.title} loading="lazy" className="w-full h-64 object-cover" />
-          <button onClick={onClose} className="absolute top-4 right-4 p-2 bg-white/70 backdrop-blur-sm text-gray-800 rounded-full hover:bg-white hover:scale-110 transition-all duration-300 z-10">
-            <X className="h-5 w-5" />
-          </button>
+    useEffect(() => {
+        if (service) {
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => {
+                document.getElementById('modal-content')?.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 50);
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => { document.body.style.overflow = ''; };
+    }, [service]);
+
+    if (!service) return null;
+
+    const fullDescriptionMatch = service.description.match(/---([\s\S]*)/);
+    const fullDescription = fullDescriptionMatch ? fullDescriptionMatch[1].trim() : service.description;
+
+    return (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in" onClick={onClose}>
+            <div
+                id="modal-content"
+                className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto flex flex-col shadow-2xl animate-scale-in"
+                onClick={(e) => e.stopPropagation()}
+            >
+                {/* --- التعديل هنا --- */}
+                <div className="relative bg-gray-100">
+                    <img src={service.image_url} alt={service.title} loading="lazy" className="w-full h-64 object-contain" />
+                    <button onClick={onClose} className="absolute top-4 right-4 p-2 bg-white/70 backdrop-blur-sm text-gray-800 rounded-full hover:bg-white hover:scale-110 transition-all duration-300 z-10">
+                        <X className="h-5 w-5" />
+                    </button>
+                </div>
+                {/* --- نهاية التعديل --- */}
+                <div className="p-8 md:p-12">
+                    <h2 className="text-3xl md:text-4xl font-arabic font-bold text-primary-blue mb-6 text-center">{service.title}</h2>
+                    <article className="prose prose-lg prose-slate max-w-none prose-rtl">
+                        <style dangerouslySetInnerHTML={{ __html: `
+                            .prose-rtl ul, .prose-rtl ol { direction: rtl; text-align: right; padding-right: 20px; padding-left: 0; }
+                            .prose-rtl ul li, .prose-rtl ol li { list-style-position: inside; text-indent: -1.5em; padding-right: 1.5em; }
+                            .prose-rtl p { text-align: right; direction: rtl; }
+                            .prose-rtl h1, .prose-rtl h2, .prose-rtl h3, .prose-rtl h4, .prose-rtl h5, .prose-rtl h6 { text-align: right; direction: rtl; }
+                        `}} />
+                        <ReactMarkdown>{fullDescription}</ReactMarkdown>
+                    </article>
+                    <div className="text-center mt-10">
+                        <a href="/contact" className="inline-flex items-center px-8 py-3 bg-primary-blue text-white font-arabic font-bold rounded-full hover:bg-primary-sky-blue transition-all duration-300 transform hover:scale-105 shadow-lg">
+                            <Phone className="ml-2 h-5 w-5" />
+                            اطلب استشارة الآن
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div className="p-8 md:p-12">
-          <h2 className="text-3xl md:text-4xl font-arabic font-bold text-primary-blue mb-6 text-center">{service.title}</h2>
-          <article className="prose prose-lg prose-slate max-w-none text-right" dir="rtl"><ReactMarkdown>{fullDescription}</ReactMarkdown></article>
-          <div className="text-center mt-10">
-            <a href="/contact" className="inline-flex items-center px-8 py-3 bg-primary-blue text-white font-arabic font-bold rounded-full hover:bg-primary-sky-blue transition-all duration-300 transform hover:scale-105 shadow-lg">
-              <Phone className="ml-2 h-5 w-5" /> اطلب استشارة الآن
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+    );
 });
 
 // --- 3. مكون فرعي: آراء العملاء ---
