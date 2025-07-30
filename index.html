@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
   <head>
-    <!-- Meta الأساسية -->
+    <!-- الأساسيات -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
     <title>متجر أبار جروب | طلمبات، معدات حفر، وطاقة شمسية</title>
 
     <!-- SEO -->
@@ -15,7 +14,12 @@
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://www.abaargroup.com/store" />
 
-    <!-- Favicon + Icons -->
+    <!-- اللغة -->
+    <link rel="alternate" hreflang="ar-EG" href="https://www.abaargroup.com/store" />
+    <link rel="alternate" hreflang="en" href="https://www.abaargroup.com/en/store" />
+    <link rel="alternate" hreflang="x-default" href="https://www.abaargroup.com/store" />
+
+    <!-- الأيقونات -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -23,17 +27,12 @@
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#1D4ED8" />
 
-    <!-- اللغة -->
-    <link rel="alternate" hreflang="ar-EG" href="https://www.abaargroup.com/store" />
-    <link rel="alternate" hreflang="en" href="https://www.abaargroup.com/en/store" />
-    <link rel="alternate" hreflang="x-default" href="https://www.abaargroup.com/store" />
-
-    <!-- Fonts -->
+    <!-- الخطوط -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet" />
 
-    <!-- OG Meta for social -->
+    <!-- OG للسوشيال ميديا -->
     <meta property="og:title" content="متجر أبار جروب - معدات المياه والطاقة الشمسية" />
     <meta property="og:description" content="تسوق أفضل المنتجات والمعدات لحلول المياه الجوفية والطاقة الشمسية من أبار جروب." />
     <meta property="og:type" content="website" />
@@ -48,7 +47,7 @@
     <meta name="twitter:description" content="تسوق أفضل المنتجات والمعدات لحلول المياه الجوفية والطاقة الشمسية." />
     <meta name="twitter:image" content="https://www.abaargroup.com/twitter-image.png" />
 
-    <!-- Structured Data Schema -->
+    <!-- Structured Data (Schema.org) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -71,7 +70,14 @@
         "openingHoursSpecification": [
           {
             "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+            "dayOfWeek": [
+              "Saturday",
+              "Sunday",
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday"
+            ],
             "opens": "09:00",
             "closes": "17:00"
           }
@@ -85,6 +91,9 @@
       You need to enable JavaScript to run this app. <br />
       تحتاج إلى تفعيل الجافا سكريبت لتشغيل هذا التطبيق.
     </noscript>
-    <script type="module" src="/src/main.tsx"></script>
+
+    <!-- السكربت النهائي -->
+<script type="module" src="/src/main.tsx"></script>
+    <!-- ملاحظة: تأكد أن هذا المسار ناتج عن عملية build في Vite/Webpack -->
   </body>
 </html>
