@@ -20,7 +20,7 @@ const translations = {
     store: 'المتجر',
     articles: 'المقالات',
     english: 'English',
-    
+
     // Store & Products
     storeTitle: 'متجر أبار جروب',
     storeDescription: 'تسوق أفضل المنتجات والمعدات لحلول المياه والطاقة الشمسية',
@@ -59,7 +59,7 @@ const translations = {
     in_stock: 'متوفر',
     out_of_stock: 'نفذت الكمية',
     share_product: 'مشاركة المنتج',
-    
+
     // Product Attributes (Updated & Corrected)
     brand: 'الماركة',
     origin:'بلد المنشأ',
@@ -81,6 +81,19 @@ const translations = {
     '50': 'تحميل 50%',
     '75': 'تحميل 75%',
     '100': 'تحميل 100%',
+    
+    // ## -- New keys from image -- ##
+    standard: 'المعيار',
+    trust_kn: 'Trust KN', // Assuming this is a brand/model specific name
+    protection_category: 'فئة الحماية',
+    power_factor_cos_50: 'معامل القدرة (50% تحميل)',
+    power_factor_cos_75: 'معامل القدرة (75% تحميل)',
+    power_factor_cos_100: 'معامل القدرة (100% تحميل)',
+    efficiency_percent_50: 'الكفاءة (50% تحميل)',
+    efficiency_percent_75: 'الكفاءة (75% تحميل)',
+    efficiency_percent_100: 'الكفاءة (100% تحميل)',
+    // ## ------------------------- ##
+    
     // Old keys for reference
     section: 'المقطع',
     manufacturer: 'الشركة المصنعة',
@@ -132,7 +145,7 @@ const translations = {
     checkout: 'إتمام الطلب',
     requestQuoteWhatsapp: 'طلب عرض سعر عبر واتساب',
     continueShopping: 'متابعة التسوق',
-    
+
     // Homepage
     heroTitle: 'ابار جروب للمقاولات العامة',
     heroSubtitle: 'رواد في خدمات المياه الجوفية والطاقة الشمسية',
@@ -141,7 +154,7 @@ const translations = {
     aboutIntro: 'حفر أبار المياه الجوفية وصيانتها وتطهيرها وتوريد كافة قطع الغيار والطلمبات والغاطس والمواسير وفق احدث الانظمة والتكنولوجيا.',
     ourServices: 'خدماتنا',
     whyChooseUs: 'لماذا ابار جروب',
-    
+
     // New sections
     customerReviews: 'آراء العملاء',
     ourClients: 'عملائنا',
@@ -151,7 +164,7 @@ const translations = {
     coreValues: 'قيمنا الأساسية',
     whyAbaarGroup: 'لماذا ابار جروب؟',
     ourCertifications: 'اعتماداتنا',
-    
+
     // Services
     wellDrilling: 'حفر الآبار',
     wellMaintenance: 'صيانة آبار المياه',
@@ -160,7 +173,7 @@ const translations = {
     consultations: 'الاستشارات',
     supplies: 'التوريدات',
     tvSystems: 'تموير الدبل تليفزيونيا',
-    
+
     // Service descriptions
     wellDrillingDesc: 'حفر آبار المياه الجوفية بأحدث التقنيات والمعدات المتطورة',
     wellMaintenanceDesc: 'صيانة وتأهيل آبار المياه لضمان الأداء الأمثل',
@@ -169,7 +182,7 @@ const translations = {
     consultationsDesc: 'استشارات تقنية متخصصة في مجال المياه والطاقة',
     suppliesDesc: 'توريد المعدات والمواد التقنية عالية الجودة',
     tvSystemsDesc: 'توريد وتركيب أنظمة التلفزيون المزدوجة',
-    
+
     // Contact
     getInTouch: 'تواصل معنا',
     name: 'الاسم',
@@ -183,18 +196,18 @@ const translations = {
     copyright: '© 2025 ابار جروب للمقاولات العامة. جميع الحقوق محفوظة.',
     quickLinks: 'روابط سريعة',
     contactInfo: 'معلومات التواصل',
-    
+
     // Stats
     projectsCompleted: 'مشروع مكتمل',
     yearsExperience: 'سنة خبرة',
     happyClients: 'عميل راضٍ',
     wellsDrilled: 'بئر محفور',
-    
+
     // About
     ourMission: 'رسالتنا',
     ourVision: 'رؤيتنا',
     ourValues: 'قيمنا',
-    
+
     // Common
     learnMore: 'اعرف المزيد',
     readMore: 'اقرأ المزيد',
@@ -203,7 +216,7 @@ const translations = {
     quality: 'الثقة والضمان',
     innovation: 'فريق العمل',
     reliability: 'المشروع من الألف الي الياء',
-    
+
     // Values
     qualityValue: 'معايير بناء لا تقبل المساومة',
     innovationValue: 'حلول هندسية متطورة',
@@ -221,7 +234,7 @@ const translations = {
     store: 'Store',
     articles: 'Articles',
     english: 'عربي',
-    
+
     // Store & Products
     storeTitle: 'ABAAR Group Store',
     storeDescription: 'Shop the best products and equipment for water and solar energy solutions',
@@ -282,6 +295,19 @@ const translations = {
     '50': '50% Load',
     '75': '75% Load',
     '100': '100% Load',
+    
+    // ## -- New keys from image -- ##
+    standard: 'Standard',
+    trust_kn: 'Trust KN', // Assuming this is a brand/model specific name
+    protection_category: 'Protection Category',
+    power_factor_cos_50: 'Power Factor (50% Load)',
+    power_factor_cos_75: 'Power Factor (75% Load)',
+    power_factor_cos_100: 'Power Factor (100% Load)',
+    efficiency_percent_50: 'Efficiency (50% Load)',
+    efficiency_percent_75: 'Efficiency (75% Load)',
+    efficiency_percent_100: 'Efficiency (100% Load)',
+    // ## ------------------------- ##
+
     // Old keys for reference
     section: 'Section',
     power: 'Power',
@@ -303,7 +329,7 @@ const translations = {
     voltage_rating: 'Voltage Rating',
     display_type: 'Display Type',
     accuracy: 'Accuracy',
-    
+
     // Cart
     cart: 'Quote Cart',
     emptyCart: 'Cart is Empty',
@@ -316,7 +342,7 @@ const translations = {
     checkout: 'Request Quote',
     requestQuoteWhatsapp: 'Request Quote via WhatsApp',
     continueShopping: 'Continue Shopping',
-    
+
     // Homepage
     heroTitle: 'ABAAR Group for General Contracting',
     heroSubtitle: 'Leaders in Groundwater & Solar Energy Services',
@@ -325,7 +351,7 @@ const translations = {
     aboutIntro: 'ABAAR Group is a leading Egyptian company specializing in well drilling, groundwater maintenance, and solar energy solutions.',
     ourServices: 'Our Services',
     whyChooseUs: 'Why Choose Us',
-    
+
     // New sections
     customerReviews: 'Customer Reviews',
     ourClients: 'Our Clients',
@@ -335,7 +361,7 @@ const translations = {
     coreValues: 'Core Values',
     whyAbaarGroup: 'Why ABAAR Group?',
     ourCertifications: 'Our Certifications',
-    
+
     // Services
     wellDrilling: 'Well Drilling',
     wellMaintenance: 'Water Well Maintenance',
@@ -344,7 +370,7 @@ const translations = {
     consultations: 'Consultations',
     supplies: 'Supplies',
     tvSystems: 'Dual Television Systems Supply',
-    
+
     // Service descriptions
     wellDrillingDesc: 'Professional water well drilling using advanced technology and equipment',
     wellMaintenanceDesc: 'Comprehensive well maintenance and rehabilitation services',
@@ -353,7 +379,7 @@ const translations = {
     consultationsDesc: 'Specialized technical consulting in water and energy sectors',
     suppliesDesc: 'Supply of high-quality technical equipment and materials',
     tvSystemsDesc: 'Supply and installation of dual television systems',
-    
+
     // Contact
     getInTouch: 'Get In Touch',
     name: 'Name',
@@ -362,23 +388,23 @@ const translations = {
     subject: 'Subject',
     message: 'Message',
     sendMessage: 'Send Message',
-    
+
     // Footer
     copyright: '© 2025 ABAAR Group for General Contracting. All Rights Reserved.',
     quickLinks: 'Quick Links',
     contactInfo: 'Contact Information',
-    
+
     // Stats
     projectsCompleted: 'Projects Completed',
     yearsExperience: 'Years Experience',
     happyClients: 'Happy Clients',
     wellsDrilled: 'Wells Drilled',
-    
+
     // About
     ourMission: 'Our Mission',
     ourVision: 'Our Vision',
     ourValues: 'Our Values',
-    
+
     // Common
     learnMore: 'Learn More',
     readMore: 'Read More',
@@ -387,7 +413,7 @@ const translations = {
     quality: 'Quality',
     innovation: 'Innovation',
     reliability: 'Reliability',
-    
+
     // Values
     qualityValue: 'Uncompromising construction standards',
     innovationValue: 'Advanced engineering solutions',
@@ -402,8 +428,8 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
   useEffect(() => {
     document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = language;
-    
-    const title = language === 'ar' 
+
+    const title = language === 'ar'
       ? 'أبار جروب للمقاولات العامة - متجر المعدات والمنتجات'
       : 'ABAAR Group - Equipment & Products Store';
     document.title = title;
